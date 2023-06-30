@@ -1,0 +1,28 @@
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  tracing:
+    sampling:
+      probability: 1.0
+
+
+
+  metrics:
+    export:
+      dynatrace:
+        api-token: dt0c01.BZP3UL3AXSSMMVEXWKM7KAIA.ATS4LD5UJ6CC3EJDKVCYXNGU5XZ26RRND55JDJAUZAXEB6PMEPECDPQ6QNHTJCET
+        device-id: localhost
+        enabled: true
+        uri: https://yqa62833.live.dynatrace.com
+        step: 1m
+
+
+spring:
+  application:
+    name: observability-demo
+
+logging:
+  pattern:
+    level: '%5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}]'
